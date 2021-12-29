@@ -1,42 +1,18 @@
 import {
   Routes,
-  Route,
-  useNavigate
+  Route
 } from 'react-router-dom'
 import Container from '@mui/material/Container'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
-import { useState } from 'react'
 import PagesData from '../data/PagesData.json'
+import { LayoutNavigation } from '../navigation/LayoutNavigation'
 import * as Pages from '../page'
 
 export function LayoutContainer () {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const navigate = useNavigate()
-
-  const handleClick = path => event => {
-    navigate(path)
-  }
-
-  function handleChange (event, activeIndex) {
-    setActiveIndex(activeIndex)
-  }
-
   return (
     <Container>
-      <Tabs
-        value={activeIndex}
-        onChange={handleChange}
-        variant='scrollable'
-        scrollButtons
-        allowScrollButtonsMobile
-        aria-label='main navigation'
-      >
-        {
-          PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
-        }
-      </Tabs>
+      <LayoutNavigation
+        data={PagesData}
+      />
       <Routes>
         {
           PagesData.map((page, index) => {
