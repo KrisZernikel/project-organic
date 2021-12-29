@@ -33,7 +33,7 @@ export function LayoutContainer () {
       <Routes>
         {
           PagesData.map((page, index) => {
-            const Page = Pages[page.page]
+            const Page = Pages[page.page] || Pages.NotFoundPage
 
             return <Route key={index} path={page.path} element={<Page />} />
           }).concat(
