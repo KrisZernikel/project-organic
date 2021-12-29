@@ -9,7 +9,7 @@ async function getMarketsByZip (zip) {
   return res.data
 }
 
-export function FarmersMarketPage () {
+export function FarmersMarketsPage () {
   const [data, setData] = useState(null)
 
   async function handleChange (event) {
