@@ -27,17 +27,19 @@ export function LayoutContainer () {
     <Container>
       <Tabs value={activeIndex} onChange={handleChange} aria-label='main navigation'>
         {
-        PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
-        }
+          PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
+          }
       </Tabs>
       <Routes>
         {
-        PagesData.map((page, index) => {
-          const Page = Pages[page.page]
+          PagesData.map((page, index) => {
+            const Page = Pages[page.page]
 
-          return <Route key={index} path={page.path} element={<Page />} />
-        })
-        }
+            return <Route key={index} path={page.path} element={<Page />} />
+          }).concat(
+            <Route key={-1} path='*' element={<Pages.NotFoundPage />} />
+          )
+          }
       </Routes>
     </Container>
   )
