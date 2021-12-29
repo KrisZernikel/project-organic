@@ -1,4 +1,5 @@
 export * from './AboutUsPage'
+export * from './FarmersMarketPage'
 export * from './HomePage'
 export * from './NotFoundPage'
 export * from './PartnersPage'

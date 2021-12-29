@@ -18,5 +18,10 @@
         "label": "Producers",
         "path": "producers",
         "page": "ProducersPage"
+    },
+    {
+        "label": "Farmers Market",
+        "path": "farmers-market",
+        "page": "FarmersMarketPage"
     }
 ]
