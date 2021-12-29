@@ -19,8 +19,8 @@ export function LayoutContainer () {
     navigate(path)
   }
 
-  function handleChange (event, newValue) {
-    setActiveIndex(newValue)
+  function handleChange (event, activeIndex) {
+    setActiveIndex(activeIndex)
   }
 
   return (
