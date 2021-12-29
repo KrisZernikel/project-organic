@@ -8,7 +8,7 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { useState } from 'react'
 import LayoutContainerJson from './LayoutContainer.json'
-import * as Page from '../page'
+import * as Pages from '../page'
 
 function LayoutContainer () {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -33,9 +33,9 @@ function LayoutContainer () {
       <Routes>
         {
         LayoutContainerJson.map((page, index) => {
-          const PageContainer = Page[page.page]
+          const Page = Pages[page.page]
 
-          return <Route key={index} path={page.path} element={<PageContainer />} />
+          return <Route key={index} path={page.path} element={<Page />} />
         })
         }
       </Routes>
