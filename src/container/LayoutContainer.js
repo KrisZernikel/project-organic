@@ -10,7 +10,7 @@ import { useState } from 'react'
 import LayoutContainerJson from './LayoutContainer.json'
 import * as Pages from '../page'
 
-function LayoutContainer () {
+export function LayoutContainer () {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const navigate = useNavigate()
@@ -42,5 +42,3 @@ function LayoutContainer () {
     </Container>
   )
 }
-
-export default LayoutContainer

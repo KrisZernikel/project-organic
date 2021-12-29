@@ -3,7 +3,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import LayoutContainer from './container/LayoutContainer'
+import { LayoutContainer } from './container'
 
 function App () {
   return (
