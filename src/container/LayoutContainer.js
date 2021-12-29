@@ -7,7 +7,7 @@ import Container from '@mui/material/Container'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { useState } from 'react'
-import LayoutContainerJson from './LayoutContainer.json'
+import PagesData from '../data/PagesData.json'
 import * as Pages from '../page'
 
 export function LayoutContainer () {
@@ -27,12 +27,12 @@ export function LayoutContainer () {
     <Container>
       <Tabs value={activeIndex} onChange={handleChange} aria-label='main navigation'>
         {
-        LayoutContainerJson.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
+        PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
         }
       </Tabs>
       <Routes>
         {
-        LayoutContainerJson.map((page, index) => {
+        PagesData.map((page, index) => {
           const Page = Pages[page.page]
 
           return <Route key={index} path={page.path} element={<Page />} />
