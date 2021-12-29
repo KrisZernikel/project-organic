@@ -9,7 +9,9 @@ import * as Pages from '../page'
 
 export function LayoutContainer () {
   return (
-    <Container>
+    <Container
+      disableGutters
+    >
       <LayoutNavigation
         data={PagesData}
       />
