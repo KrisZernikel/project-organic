@@ -28,7 +28,7 @@ export function LayoutContainer () {
       <Tabs value={activeIndex} onChange={handleChange} aria-label='main navigation'>
         {
           PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
-          }
+        }
       </Tabs>
       <Routes>
         {
@@ -39,7 +39,7 @@ export function LayoutContainer () {
           }).concat(
             <Route key={-1} path='*' element={<Pages.NotFoundPage />} />
           )
-          }
+        }
       </Routes>
     </Container>
   )
