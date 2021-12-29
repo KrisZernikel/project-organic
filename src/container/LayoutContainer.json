@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Home",
+        "path": "",
+        "page": "HomePage"
+    },
+    {
+        "label": "About Us",
+        "path": "about-us",
+        "page": "AboutUsPage"
+    },
+    {
+        "label": "Partners",
+        "path": "partners",
+        "page": "PartnersPage"
+    },
+    {
+        "label": "Producers",
+        "path": "producers",
+        "page": "ProducersPage"
+    }
+]
