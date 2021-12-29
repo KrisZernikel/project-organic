@@ -25,7 +25,14 @@ export function LayoutContainer () {
 
   return (
     <Container>
-      <Tabs value={activeIndex} onChange={handleChange} aria-label='main navigation'>
+      <Tabs
+        value={activeIndex}
+        onChange={handleChange}
+        variant='scrollable'
+        scrollButtons
+        allowScrollButtonsMobile
+        aria-label='main navigation'
+      >
         {
           PagesData.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)
         }
