@@ -12,8 +12,6 @@ export function TabsComponent (props) {
   const currentIndex = props.data.findIndex((object) => object.path === params['*']) || 0
   const [activeIndex, setActiveIndex] = useState(currentIndex)
 
-  console.log()
-
   const handleClick = path => event => {
     navigate(path)
   }
