@@ -1,4 +1,11 @@
 import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  setZipCodeAction
+} from '../../action'
+import {
+  selectZipCode
+} from '../../reducer'
 import axios from 'axios'
 
 async function getMarketsByZip (zip) {
@@ -10,12 +17,16 @@ async function getMarketsByZip (zip) {
 }
 
 export function FarmersMarketsPage () {
+  const zipCode = useSelector(selectZipCode)
+  const dispatch = useDispatch()
   const [data, setData] = useState(null)
 
   async function handleChange (event) {
     const zip = event.target.value
 
-    if (zip >= 10000 && zip <= 99999) {
+    dispatch(setZipCodeAction(zip))
+
+    if (+zip >= 10000 && +zip <= 99999) {
       const data = await getMarketsByZip(zip)
 
       setData(data)
@@ -30,7 +41,13 @@ export function FarmersMarketsPage () {
         return <li key={index}>{JSON.stringify(market)}</li>
       })}
       <br />
-      <input type='number' onChange={handleChange} />
+      <input
+        type='text'
+        value={zipCode}
+        onChange={handleChange}
+      />
+      <br />
+      {zipCode}
     </>
   )
 }
