@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   setPreferenceZipCodeAction
@@ -6,46 +5,63 @@ import {
 import {
   selectPreferenceZipCode
 } from '../../reducer'
-import axios from 'axios'
-
-async function getMarketsByZip (zip) {
-  const res = await axios.get('http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=' + zip)
-
-  return res.data
-}
+import { useGetFarmersMarketsByZipCodeQuery } from '../../service'
+import TextField from '@mui/material/TextField'
+import validator from 'validator'
 
 export function FarmersMarketsPage () {
   const zipCode = useSelector(selectPreferenceZipCode)
   const dispatch = useDispatch()
-  const [data, setData] = useState(null)
+  const {
+    data,
+    error,
+    isLoading,
+    isFetching
+  } = useGetFarmersMarketsByZipCodeQuery(zipCode, {
+    skip: !validator.isPostalCode(zipCode, 'US')
+  })
 
-  async function handleChange (event) {
+  function handleChange (event) {
     const zip = event.target.value
 
     dispatch(setPreferenceZipCodeAction(zip))
+  }
 
-    if (+zip >= 10000 && +zip <= 99999) {
-      const data = await getMarketsByZip(zip)
+  if (isLoading) {
+    return (
+      <p>Loading...</p>
+    )
+  }
 
-      setData(data)
-    }
+  if (isFetching) {
+    return (
+      <p>Fetching...</p>
+    )
+  }
+
+  if (error) {
+    console.error(error)
+
+    return (
+      <p>An error occured :(</p>
+    )
   }
 
   return (
     <>
       <h1>Farmers Markets</h1>
       <p>Find farmers markets</p>
-      {((data && data.results) || []).map((market, index) => {
-        return <li key={index}>{JSON.stringify(market)}</li>
-      })}
-      <br />
-      <input
-        type='text'
+      <TextField
+        id='outlined-name'
+        label='Zip Code'
         value={zipCode}
         onChange={handleChange}
       />
       <br />
-      {zipCode}
+      {((data && data.results) || []).map((market, index) => {
+        return <li key={index}>{JSON.stringify(market)}</li>
+      })}
+      <br />
     </>
   )
 }
