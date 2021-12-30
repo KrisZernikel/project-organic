@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  setZipCodeAction
+  setPreferenceZipCodeAction
 } from '../../action'
 import {
   selectZipCode
@@ -10,8 +10,6 @@ import axios from 'axios'
 
 async function getMarketsByZip (zip) {
   const res = await axios.get('http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=' + zip)
-
-  console.log(res.data)
 
   return res.data
 }
@@ -24,7 +22,7 @@ export function FarmersMarketsPage () {
   async function handleChange (event) {
     const zip = event.target.value
 
-    dispatch(setZipCodeAction(zip))
+    dispatch(setPreferenceZipCodeAction(zip))
 
     if (+zip >= 10000 && +zip <= 99999) {
       const data = await getMarketsByZip(zip)

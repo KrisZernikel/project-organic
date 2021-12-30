@@ -1,3 +1,3 @@
 import { createAction } from '@reduxjs/toolkit'
 
-export const setZipCodeAction = createAction('zipCode/set')
+export const setPreferenceZipCodeAction = createAction('zipCode/set')

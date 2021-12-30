@@ -1,4 +1,4 @@
-import { setZipCodeAction } from '../action'
+import { setPreferenceZipCodeAction } from '../action'
 import { createReducer, createDraftSafeSelector } from '@reduxjs/toolkit'
 
 const preferenceZipCodeStorageKey = 'preferenceZipCode'
@@ -22,7 +22,7 @@ function initialState () {
 }
 
 export const zipCodeReducer = createReducer(initialState, builder => {
-  builder.addCase(setZipCodeAction, (state, action) => {
+  builder.addCase(setPreferenceZipCodeAction, (state, action) => {
     const value = action.payload
 
     setLocalStorageItem(preferenceZipCodeStorageKey, value)
