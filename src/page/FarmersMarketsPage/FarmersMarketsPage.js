@@ -4,7 +4,7 @@ import {
   setPreferenceZipCodeAction
 } from '../../action'
 import {
-  selectZipCode
+  selectPreferenceZipCode
 } from '../../reducer'
 import axios from 'axios'
 
@@ -15,7 +15,7 @@ async function getMarketsByZip (zip) {
 }
 
 export function FarmersMarketsPage () {
-  const zipCode = useSelector(selectZipCode)
+  const zipCode = useSelector(selectPreferenceZipCode)
   const dispatch = useDispatch()
   const [data, setData] = useState(null)
 

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { zipCodeReducer } from '../reducer'
+import { preferenceZipCodeReducer } from '../reducer'
 
 export const store = configureStore({
   reducer: {
-    zipCode: zipCodeReducer
+    zipCode: preferenceZipCodeReducer
   }
 })

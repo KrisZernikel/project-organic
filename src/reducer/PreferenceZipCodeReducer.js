@@ -21,7 +21,7 @@ function initialState () {
   return preferenceZipCode
 }
 
-export const zipCodeReducer = createReducer(initialState, builder => {
+export const preferenceZipCodeReducer = createReducer(initialState, builder => {
   builder.addCase(setPreferenceZipCodeAction, (state, action) => {
     const value = action.payload
 
@@ -33,7 +33,7 @@ export const zipCodeReducer = createReducer(initialState, builder => {
 
 const selectSelf = state => state
 
-export const selectZipCode = createDraftSafeSelector(
+export const selectPreferenceZipCode = createDraftSafeSelector(
   selectSelf,
   state => state.zipCode
 )
