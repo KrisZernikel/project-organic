@@ -110,7 +110,10 @@
   "standard": {
     "parser": "@babel/eslint-parser",
     "envs": [
-      "jest"
+      "jest",
+      "browser",
+      "es2021",
+      "worker"
     ]
   },
   "jest": {
