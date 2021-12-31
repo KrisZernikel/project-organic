@@ -4,18 +4,16 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const farmersMarketsApi = createApi({
   reducerPath: 'farmersMarketsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://search.ams.usda.gov/',
-    fetchFn: (...args) => {
-      const init = (args[1] || {}).cache = ({ cache: 'force-cache' })
-
-      args[1] = init
-
-      return fetch(...args)
-    }
+    baseUrl: 'https://search.ams.usda.gov/'
   }),
   endpoints: (builder) => ({
     getFarmersMarketsByZipCode: builder.query({
-      query: (zipCode) => `farmersmarkets/v1/data.svc/zipSearch?zip=${zipCode}`
+      query: (zipCode) => {
+        return {
+          url: `farmersmarkets/v1/data.svc/zipSearch?zip=${zipCode}`,
+          cache: 'default'
+        }
+      }
     })
   })
 })
