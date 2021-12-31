@@ -8,6 +8,7 @@ import {
 import { useGetFarmersMarketsByZipCodeQuery } from '../../service'
 import TextField from '@mui/material/TextField'
 import validator from 'validator'
+import { Table } from '../../component'
 
 export function FarmersMarketsPage () {
   const zipCode = useSelector(selectPreferenceZipCode)
@@ -58,10 +59,10 @@ export function FarmersMarketsPage () {
         onChange={handleChange}
       />
       <br />
-      {((data && data.results) || []).map((market, index) => {
-        return <li key={index}>{JSON.stringify(market)}</li>
-      })}
-      <br />
+      <Table.ShellComponent>
+        <Table.ToolbarComponent title='Farmers Markets' />
+        <Table.DataComponent rows={data.results} />
+      </Table.ShellComponent>
     </>
   )
 }

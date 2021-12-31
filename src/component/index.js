@@ -1,2 +1,2 @@
-export * from './TableComponent'
-export * from './TabsComponent'
+export { default as Table } from './TableComponent'
+export { default as AppBar } from './AppBarComponent'

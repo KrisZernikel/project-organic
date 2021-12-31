@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom'
 import Container from '@mui/material/Container'
 import PagesData from '../data/PagesData.json'
-import { TabsComponent } from '../component'
+import { AppBar } from '../component'
 import * as Pages from '../page'
 
 export function LayoutContainer () {
@@ -12,7 +12,7 @@ export function LayoutContainer () {
     <Container
       disableGutters
     >
-      <TabsComponent
+      <AppBar.TabsComponent
         data={PagesData}
       />
       <Routes>
