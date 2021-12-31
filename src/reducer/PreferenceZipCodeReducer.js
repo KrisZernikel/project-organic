@@ -13,8 +13,6 @@ function initialState () {
   if (preferenceZipCode === null) {
     preferenceZipCode = ''
 
-    window.localStorage.setItem(preferenceZipCodeStorageKey, preferenceZipCode)
-
     setLocalStorageItem(preferenceZipCodeStorageKey, preferenceZipCode)
   }
 
