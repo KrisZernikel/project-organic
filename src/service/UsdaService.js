@@ -10,8 +10,7 @@ export const farmersMarketsApi = createApi({
     getFarmersMarketsByZipCode: builder.query({
       query: (zipCode) => {
         return {
-          url: `farmersmarkets/v1/data.svc/zipSearch?zip=${zipCode}`,
-          cache: 'default'
+          url: `farmersmarkets/v1/data.svc/zipSearch?zip=${zipCode}`
         }
       }
     })
