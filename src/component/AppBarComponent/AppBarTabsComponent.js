@@ -24,10 +24,11 @@ export function AppBarTabsComponent (props) {
     <Tabs
       value={activeIndex}
       onChange={handleChange}
-      variant='scrollable'
-      scrollButtons
-      allowScrollButtonsMobile
+      variant='fullWidth'
+    //   scrollButtons
+    //   allowScrollButtonsMobile
       aria-label='main navigation'
+      centered
     >
       {
           props.data.map((page, index) => <Tab key={index} onClick={handleClick(page.path)} label={page.label} />)

@@ -1,6 +1,3 @@
-export * from './AboutUsPage'
-export * from './FarmersMarketsPage'
+export * from './DiscoverPage'
 export * from './HomePage'
 export * from './NotFoundPage'
-export * from './PartnersPage'
-export * from './ProducersPage'

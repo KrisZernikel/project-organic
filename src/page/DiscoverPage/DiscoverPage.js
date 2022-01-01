@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField'
 import validator from 'validator'
 import { Table } from '../../component'
 
-export function FarmersMarketsPage () {
+export function DiscoverPage () {
   const zipCode = useSelector(selectPreferenceZipCode)
   const dispatch = useDispatch()
   const {
@@ -61,7 +61,7 @@ export function FarmersMarketsPage () {
       <br />
       <Table.ShellComponent>
         <Table.ToolbarComponent title='Farmers Markets' />
-        <Table.DataComponent rows={data.results} />
+        <Table.TableComponent rows={data.results} />
       </Table.ShellComponent>
     </>
   )

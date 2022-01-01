@@ -7,9 +7,13 @@ import { Provider } from 'react-redux'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
+import CssBaseline from '@mui/material/CssBaseline'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      <CssBaseline enableColorScheme />
       <App />
     </Provider>
   </React.StrictMode>,

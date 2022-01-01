@@ -2,19 +2,13 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import Container from '@mui/material/Container'
 import PagesData from '../data/PagesData.json'
 import { AppBar } from '../component'
 import * as Pages from '../page'
 
 export function LayoutContainer () {
   return (
-    <Container
-      disableGutters
-    >
-      <AppBar.TabsComponent
-        data={PagesData}
-      />
+    <AppBar.AppBarComponent brand='CO' label='Citizen Organic'>
       <Routes>
         {
           PagesData.map((page, index) => {
@@ -26,6 +20,6 @@ export function LayoutContainer () {
           )
         }
       </Routes>
-    </Container>
+    </AppBar.AppBarComponent>
   )
 }
